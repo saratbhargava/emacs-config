@@ -1,0 +1,48 @@
+* terminal
+
+Setting default shell to bash
+
+#+BEGIN_SRC emacs-lisp
+;; terminal
+(defvar my-shell "/bin/bash")
+(defadvice ansi-term (before force-bash)
+  (interactive(list my-shell)))
+(ad-activate 'ansi-term)
+#+END_SRC
+
+
+* which-key
+
+Gives hints and competitions of keyboard shortcuts while typing
+
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode))
+#+END_SRC
+
+
+* beacon
+
+highlight the current line when we switch buffers
+
+#+BEGIN_SRC emacs-lisp
+(use-package beacon
+  :ensure t
+  :init
+  (beacon-mode 1))
+#+END_SRC
+
+
+* org-bullets
+
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode))))
+#+END_SRC
+
+#+RESULTS:
+: t
